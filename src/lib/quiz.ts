@@ -76,7 +76,7 @@ export const DIRECTIONS: Record<
       en: "Private schools, Fatec, SENAI, short courses, and tutoring in Jundiaí value patience, clarity, and a love of teaching — including support roles, not only classroom teaching.",
     },
     skills: {
-      pt: ["Didática", "Planejamento de aulas", "Pacência e escuta", "Ferramentas digitais", "Alfabetização / reforço"],
+      pt: ["Didática", "Planejamento de aulas", "Paciência e escuta", "Ferramentas digitais", "Alfabetização / reforço"],
       en: ["Teaching skills", "Lesson planning", "Patience and listening", "Digital tools", "Literacy / tutoring"],
     },
   },
