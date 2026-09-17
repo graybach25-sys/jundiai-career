@@ -67,7 +67,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
-            {[...primary, ...extra].map((item) => (
+            {primary.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -80,6 +80,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 {t(item.key)}
               </Link>
             ))}
+            <button
+              type="button"
+              className={cn(
+                "rounded-full px-3 py-2 text-sm font-medium",
+                extra.some((item) => isActive(item.href)) || moreOpen
+                  ? "bg-terra text-white"
+                  : "text-ink-soft hover:bg-cream-deep hover:text-ink",
+              )}
+              aria-expanded={moreOpen}
+              onClick={() => setMoreOpen((v) => !v)}
+            >
+              {t("nav.more")}
+            </button>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -121,7 +134,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </header>
 
       {moreOpen ? (
-        <div className="no-print border-b border-line bg-paper px-4 py-3 lg:hidden">
+        <div className="no-print border-b border-line bg-paper px-4 py-3">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-2">
             {[...primary, ...extra].map((item) => (
               <Link
