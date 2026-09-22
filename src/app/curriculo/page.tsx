@@ -1,5 +1,6 @@
 "use client";
 
+import { ResumeActions } from "@/components/ResumeActions";
 import { ResumePreview } from "@/components/ResumePreview";
 import { Button, ButtonLink, Card, EmptyState, Field, PageHeader, TextArea } from "@/components/ui";
 import { defaultObjective } from "@/lib/content";
@@ -30,16 +31,14 @@ export default function ResumePage() {
 
   return (
     <div>
-      <PageHeader
-        className="no-print"
-        title={t("resume.title")}
-        lead={t("resume.lead")}
-        actions={
-          <Button className="no-print" onClick={() => window.print()}>
-            {t("common.print")}
-          </Button>
-        }
-      />
+      <PageHeader className="no-print" title={t("resume.title")} lead={t("resume.lead")} />
+
+      <div className="no-print mb-6 space-y-3">
+        <ResumeActions />
+        <Button type="button" className="no-print" variant="ghost" onClick={() => window.print()}>
+          {t("resume.printQuiet")}
+        </Button>
+      </div>
 
       <div className="no-print mb-6 grid gap-4 lg:grid-cols-[280px_1fr]">
         <Card>

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { ResumeActions } from "@/components/ResumeActions";
 import { ButtonLink, Card, ProgressBar } from "@/components/ui";
 import { useT } from "@/lib/i18n";
 import { profileCompleteness, syncPlan } from "@/lib/plan";
@@ -62,6 +63,14 @@ export default function HomePage() {
             <ArrowRight size={16} />
           </ButtonLink>
         </Card>
+      </section>
+
+      <section className="mx-auto grid max-w-xl gap-3">
+        {isProfileStarted(data.profile) ? <ResumeActions compact /> : null}
+        <ButtonLink href="/compartilhar" size="lg">
+          {t("home.share")}
+          <ArrowRight size={18} />
+        </ButtonLink>
       </section>
 
       <section>

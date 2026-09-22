@@ -43,15 +43,18 @@ export function Card({
 export function Button({
   children,
   variant = "primary",
+  size = "md",
   className,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "ghost" | "danger";
+  size?: "md" | "lg";
 }) {
   return (
     <button
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra disabled:opacity-50",
+        "inline-flex items-center justify-center gap-2 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra disabled:opacity-50",
+        size === "lg" ? "min-h-16 w-full rounded-3xl px-5 py-4 text-lg" : "min-h-11 rounded-full px-4 py-2 text-sm",
         variant === "primary" && "bg-terra text-white hover:bg-terra-deep",
         variant === "secondary" && "bg-sage-soft text-sage hover:bg-sage/15",
         variant === "ghost" && "border border-line bg-paper text-ink hover:bg-cream-deep",
@@ -69,18 +72,21 @@ export function ButtonLink({
   href,
   children,
   variant = "primary",
+  size = "md",
   className,
 }: {
   href: string;
   children: ReactNode;
   variant?: "primary" | "secondary" | "ghost";
+  size?: "md" | "lg";
   className?: string;
 }) {
   return (
     <Link
       href={href}
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra",
+        "inline-flex items-center justify-center gap-2 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra",
+        size === "lg" ? "min-h-16 w-full rounded-3xl px-5 py-4 text-lg" : "min-h-11 rounded-full px-4 py-2 text-sm",
         variant === "primary" && "bg-terra text-white hover:bg-terra-deep",
         variant === "secondary" && "bg-sage-soft text-sage hover:bg-sage/15",
         variant === "ghost" && "border border-line bg-paper text-ink hover:bg-cream-deep",

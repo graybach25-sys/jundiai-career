@@ -42,8 +42,23 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { data, setData, ready, loadDemo, resetAll } = useStore();
   const pathname = usePathname();
   const [moreOpen, setMoreOpen] = useState(false);
-
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+
+  if (pathname.startsWith("/ver")) {
+    return (
+      <div className="min-h-dvh bg-cream text-ink">
+        <a
+          href="#conteudo"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-terra focus:px-4 focus:py-2 focus:text-white"
+        >
+          {t("app.skip")}
+        </a>
+        <main id="conteudo" className="mx-auto w-full max-w-3xl px-4 py-8">
+          {children}
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-dvh bg-cream text-ink">
